@@ -1,23 +1,45 @@
-# EVM From Scratch
-
 ![EVM From Scratch](.github/logo.png)
 
-Welcome to **EVM From Scratch**! It's a 100% practical course that will help you better understand the inner workings of the Ethereum Virtual Machine. During this course, we'll implement EVM in your favorite programming language.
+This is my implementation of the **EVM From Scratch** course, building a Ethereum Virtual Machine interpreter in **Rust**.
 
-## Getting Started
+**My fork:** [github.com/aryanbaranwal001/evm_from_scratch](https://github.com/aryanbaranwal001/evm_from_scratch)  
+**Original course repo:** [github.com/w1nt3r-eth/evm-from-scratch](https://github.com/w1nt3r-eth/evm-from-scratch)
 
-Clone the repo:
+---
+
+## Progress
+
+**96 / 152 tests passing**
+
+### Implemented Opcodes
+
+| Category | Opcodes |
+|---|---|
+| Arithmetic | `ADD`, `MUL`, `SUB`, `DIV`, `SDIV`, `MOD`, `SMOD`, `ADDMOD`, `MULMOD`, `EXP`, `SIGNEXTEND` |
+| Comparison & Bitwise | `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`, `OR`, `XOR`, `NOT`, `BYTE`, `SHL`, `SHR`, `SAR` |
+| Stack | `POP`, `PUSH0`, `PUSH1`–`PUSH32`, `DUP1`–`DUP16`, `SWAP1`–`SWAP16` |
+| Memory | `MLOAD`, `MSTORE`, `MSTORE8`, `MSIZE` |
+| Control Flow | `STOP`, `JUMP`, `JUMPI`, `JUMPDEST`, `PC`, `GAS`, `INVALID` |
+
+### Next Up
+
+- `SHA3` (keccak256) — test 97
+- Environment / block context opcodes
+- Call data, return data, and logging opcodes
+
+---
+
+## How to Run the Tests
 
 ```sh
-git clone https://github.com/w1nt3r-eth/evm-from-scratch
+cd rust
+cargo run
 ```
 
-This repository contains [`evm.json`](./evm.json) file with more than 100 test cases. Your goal is to create an implementation in any programming language of your choice that passes all tests.
+The test runner reads [`evm.json`](./evm.json) and runs each test case against the implementation in [`rust/src/lib.rs`](./rust/src/lib.rs). It will print each test, the expected vs actual stack, and a final progress count.
 
-The test cases are organized by complexity: they start with the simplest opcodes and gradually progress to advanced. Each test case has a name, code and expectation. The code is provided as a human-readable instructions list (`asm`) and machine-readable bytecode encoded in hex (`bin`). Your implementation should only look at `bin`, the `asm` is provided to make unit tests easier to debug.
-
-The repository contains templates for JavaScript, TypeScript, Python, Go and Rust. However, you don't have to use the existing templates, you can build your own test suite based on [`evm.json`](./evm.json).
+---
 
 ## Credits
 
-All the materials in the repository are made by [w1nt3r.eth](https://twitter.com/w1nt3r_eth). The repository is part of the "EVM From Scratch" course (release date TBD).
+All course materials are made by [w1nt3r.eth](https://twitter.com/w1nt3r_eth). Original repository: [github.com/w1nt3r-eth/evm-from-scratch](https://github.com/w1nt3r-eth/evm-from-scratch).
